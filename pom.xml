@@ -26,7 +26,6 @@
         <repository>
             <id>${env.DISTRIBUTION_ID}</id>
             <name>${env.DISTRIBUTION_NAME}</name>
-            <!--suppress UnresolvedMavenProperty -->
             <url>${env.DISTRIBUTION_URL}</url>
         </repository>
     </distributionManagement>
