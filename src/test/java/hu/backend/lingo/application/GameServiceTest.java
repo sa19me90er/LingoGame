@@ -23,7 +23,8 @@ import java.util.stream.Stream;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes= LingoGameApplication.class)
+@SpringBootTest
+
 public class GameServiceTest {
 
     private static List<String> guessedWordsLevel5 = Arrays.asList("loard", "waard", "samen", "KAMER", "woord");

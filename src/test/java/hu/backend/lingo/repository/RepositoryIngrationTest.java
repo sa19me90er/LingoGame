@@ -4,7 +4,6 @@ import hu.backend.lingo.LingoGameApplication;
 import hu.backend.lingo.domain.Word;
 import hu.backend.lingo.infrastructure.persistence.WordRepository;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +13,9 @@ import static org.junit.Assert.*;
 
 import java.util.Optional;
 
-import static org.junit.Assert.fail;
-
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes=LingoGameApplication.class)
+@SpringBootTest
 public class RepositoryIngrationTest {
 
 

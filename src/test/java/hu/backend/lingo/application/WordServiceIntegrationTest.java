@@ -16,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes= LingoGameApplication.class)
+@SpringBootTest
 public class WordServiceIntegrationTest {
 
     @Autowired
