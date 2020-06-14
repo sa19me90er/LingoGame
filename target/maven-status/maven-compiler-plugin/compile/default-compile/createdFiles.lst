@@ -1,8 +1,0 @@
-hu\backend\lingo\application\TurnResult.class
-hu\backend\lingo\application\EndResult.class
-hu\backend\lingo\domain\Word.class
-hu\backend\lingo\infrastructure\persistence\WordRepository.class
-hu\backend\lingo\infrastructure\web\controller\WordController.class
-hu\backend\lingo\application\GameService.class
-hu\backend\lingo\LingoGameApplication.class
-hu\backend\lingo\application\WordService.class
