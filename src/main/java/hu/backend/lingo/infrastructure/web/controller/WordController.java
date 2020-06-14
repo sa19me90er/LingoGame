@@ -24,60 +24,10 @@ public class WordController {
     @Autowired
     private GameService gameService;
 
-//    @GetMapping(produces = "application/json")
-//    public List<Word> listWordes () {
-//        return this.wordService.getAllWords();
-//    }
-//
-//    @GetMapping(value = "/{word}", produces = "application/json")
-//    public Word findWord(@PathVariable String word) {
-//        return this.wordService
-//                .findWordById(word)
-//                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-//    }
-
     @GetMapping(value = "/random/{wordLength}", produces = "application/json")
     public Word electWord(@PathVariable int wordLength) {
         return this.wordService.electWord(wordLength);
     }
-
-//    @PostMapping
-//    public List<Boolean> guessWord(@RequestBody String guessedWord) {
-//        return this.gameService.validString("hello",guessedWord);
-//    }
-
-//    @GetMapping("/")
-//    public String process(Model model, HttpSession session) {
-//        @SuppressWarnings("unchecked")
-//        List<String> messages = (List<String>) session.getAttribute("MY_SESSION_WORD");
-//
-//        if (messages == null) {
-//            messages = new ArrayList<>();
-//        }
-//        model.addAttribute("sessionMessages", messages);
-//
-//        return "index";
-//    }
-//
-//    @PostMapping("/persistWord")
-//    public String persistMessage(@RequestParam("msg") String msg, HttpServletRequest request) {
-//
-//        List<String> messages = (List<String>) request.getSession().getAttribute("MY_SESSION_MESSAGES");
-//        if (messages == null) {
-//            messages = new ArrayList<>();
-//            request.getSession().setAttribute("MY_SESSION_WORD", messages);
-//        }
-//        messages.add(msg);
-//        request.getSession().setAttribute("MY_SESSION_WORD", messages);
-//        return "redirect:/";
-//    }
-//
-//    @PostMapping("/destroy")
-//    public String destroySession(HttpServletRequest request) {
-//        request.getSession().invalidate();
-//        return "redirect:/";
-//    }
-
 
 
     @GetMapping("/addWord")
@@ -119,10 +69,11 @@ public class WordController {
 
     @GetMapping("/newGame")
     public String destroySession(@RequestParam("level") int level, HttpServletRequest request) {
-        //invalidate the session , this will clear the data from configured database (Mysql/redis/hazelcast)
 
+        //invalidate the session , this will clear the session data from configured database (Mysql/redis/hazelcast)
         request.getSession().invalidate();
 
+        // begin new game and set level
         if (level < 5 || level > 7) {return "Level not allowed";}
         String randomWord = this.wordService.electWord(level).getWord();
         request.getSession().setAttribute("RANDOM_WORD_SESSION",randomWord);
@@ -132,6 +83,11 @@ public class WordController {
     @GetMapping("/test")
     public Optional<Word> findWordById(@RequestParam("word") String word) {
         return this.wordService.findWordById(word);
+    }
+
+    @GetMapping("/")
+    public String helloWorld() {
+        return "Hello World";
     }
 
 }
