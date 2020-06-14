@@ -17,27 +17,15 @@ public class WordService {
     @Autowired
     private WordRepository wordRepository;
 
-    public WordService(WordRepository wordRepository) {
-        this.wordRepository = wordRepository;
-    }
-
-    public WordService() { }
-
-    public List<Word> getAllWords()
-    {
-        List<Word> userRecords = new ArrayList<>();
-        wordRepository.findAll().forEach(userRecords::add);
-        return userRecords;
-    }
+//    public WordService(WordRepository wordRepository) {
+//        this.wordRepository = wordRepository;
+//    }
+//
+//    public WordService() { }
 
     public Optional<Word> findWordById(String word) {
+        word = word.toLowerCase();
         return this.wordRepository.findById(word);
-    }
-
-    public void writeWord(String word, int length) {
-        this.wordRepository.save(
-                new Word(word, length)
-        );
     }
 
 

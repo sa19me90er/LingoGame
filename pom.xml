@@ -26,24 +26,18 @@
         <repository>
             <id>${env.DISTRIBUTION_ID}</id>
             <name>${env.DISTRIBUTION_NAME}</name>
+            <!--suppress UnresolvedMavenProperty -->
             <url>${env.DISTRIBUTION_URL}</url>
         </repository>
     </distributionManagement>
 
     <dependencies>
 
-                <dependency>
-                    <groupId>org.hibernate</groupId>
-                    <artifactId>hibernate-core</artifactId>
-                    <version>5.4.2.Final</version>
-                </dependency>
-
-                <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
-                <dependency>
-                    <groupId>org.hibernate.javax.persistence</groupId>
-                    <artifactId>hibernate-jpa-2.1-api</artifactId>
-                    <version>1.0.2.Final</version>
-                </dependency>
+        <!-- h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -60,7 +54,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.12</version>
+<!--            <version>42.2.12</version>-->
         </dependency>
 
         <dependency>
@@ -122,14 +116,8 @@
                     <mainClass>${start-class}</mainClass>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>10</source>
-                    <target>10</target>
-                </configuration>
-            </plugin>
+
+
         </plugins>
     </build>
 
