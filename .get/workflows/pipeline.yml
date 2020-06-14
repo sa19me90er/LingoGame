@@ -21,7 +21,7 @@ jobs:
       - name: Set up JDK 12
         uses: actions/setup-java@v1
         with:
-          java-version: 12
+          java-version: 8
       # Run all maven phases to deployment
       # with our repository as a target
       - name: Publish jar to GitHub Packages
