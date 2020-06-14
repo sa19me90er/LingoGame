@@ -1,0 +1,3 @@
+hu\backend\lingo\application\GameServiceTest.class
+hu\backend\lingo\application\WordServiceIntegrationTest.class
+hu\backend\lingo\repository\RepositoryIngrationTest.class

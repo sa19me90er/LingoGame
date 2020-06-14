@@ -30,7 +30,7 @@ public class GameService {
         List<TurnResult> roundTurnResultList = new ArrayList<>();
         List temporaryList = new ArrayList();
 
-        for (int letterIndex = 0; letterIndex < guessedWord.length(); letterIndex++) {
+        for (int letterIndex = 0; letterIndex < theRightWord.length(); letterIndex++) {
             char rightLetter = theRightWord.charAt(letterIndex);
             char guessedLetter = guessedWord.charAt(letterIndex);
 
@@ -64,7 +64,6 @@ public class GameService {
 
 
     public JSONObject validGuessWord(int gameRounds, String theRightWord, List<String> guessedWords) {
-
         JSONObject resultJsonObject = new JSONObject();
         int roundNumber = 0;
 
@@ -98,7 +97,7 @@ public class GameService {
                 }
 
             } else{
-                for (int letterIndex = 0; letterIndex < guessedWord.length(); letterIndex++) {
+                for (int letterIndex = 0; letterIndex < theRightWord.length(); letterIndex++) {
                     roundTurnResultList.add(this.turnResult = TurnResult.invalid);
                 }
                 resultJsonObject.put(String.valueOf(roundNumber), roundTurnResultList);
